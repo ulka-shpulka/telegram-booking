@@ -27,7 +27,7 @@ def submit_visit():
         return jsonify({"error": "Пользователь не найден"}), 404
 
     text = f"✅ Ваша запись подтверждена:\n🛠 Услуга: {service}\n👤 Сотрудник: {staff}\n📅 Дата: {datetime}"
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+    url = f"https://api.telegram.org/bot7649901748:AAE-yAcdXAQKmIoO45ErEdVfdicBGD6dwKs/sendMessage"
 
     response = requests.post(url, data={"chat_id": chat_id, "text": text})
     if response.ok:
