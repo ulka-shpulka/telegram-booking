@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import requests
+import os
 
 app = Flask(__name__)
 
@@ -7,9 +8,8 @@ app = Flask(__name__)
 BOT_TOKEN = '7649901748:AAE-yAcdXAQKmIoO45ErEdVfdicBGD6dwKs'
 
 # Тут должна быть связь user_id или email с chat_id
-# Примерная таблица:
 users = {
-    "client123": 1005939833,  # Здесь chat_id из Telegram
+    "client123": 123456789,  # Здесь chat_id из Telegram
 }
 
 @app.route('/submit-visit', methods=['POST'])
@@ -27,7 +27,7 @@ def submit_visit():
         return jsonify({"error": "Пользователь не найден"}), 404
 
     text = f"✅ Ваша запись подтверждена:\n🛠 Услуга: {service}\n👤 Сотрудник: {staff}\n📅 Дата: {datetime}"
-    url = f"https://api.telegram.org/bot7649901748:AAE-yAcdXAQKmIoO45ErEdVfdicBGD6dwKs/sendMessage"
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
     response = requests.post(url, data={"chat_id": chat_id, "text": text})
     if response.ok:
