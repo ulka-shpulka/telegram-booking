@@ -4,12 +4,12 @@ import requests
 app = Flask(__name__)
 
 # Конфигурация
-BOT_TOKEN = 'твой_токен_бота'
+BOT_TOKEN = '7649901748:AAE-yAcdXAQKmIoO45ErEdVfdicBGD6dwKs'
 
 # Тут должна быть связь user_id или email с chat_id
 # Примерная таблица:
 users = {
-    "client123": 123456789,  # Здесь chat_id из Telegram
+    "client123": 1005939833,  # Здесь chat_id из Telegram
 }
 
 @app.route('/submit-visit', methods=['POST'])
